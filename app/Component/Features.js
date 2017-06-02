@@ -4,14 +4,14 @@ import {
   View,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import USBoxList from './USBoxList';
+import MovieList from './MovieList';
 import MovieDetail from './MovieDetail';
 
 import styles from '../style/main';
 
-class USBox extends Component {
+class Features extends Component {
   static navigationOptions = {
-    title: '北美票房',
+    title: '推荐电影',
     headerStyle: {
       backgroundColor: 'darkslateblue'
     },
@@ -20,14 +20,14 @@ class USBox extends Component {
   render(){
     const { navigation } = this.props;
     return(
-      <USBoxList navigation= {navigation} />
+      <MovieList navigation= {navigation} />
     )
   }
 }
 
 const homePage = StackNavigator({
-  Home: { screen: USBox },
-  MoveiDetail: { screen: MovieDetail }
+  Home: { screen: Features },
+  MoveiDetail: {screen: MovieDetail}
 });
 
 export { homePage as default }

@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 import styles from '../style/main';
 
-const REQUEST_MOVIES_URL = 'http://api.douban.com/v2/movie/top250';
+const REQUEST_MOVIES_URL = 'http://api.douban.com/v2/movie/us_box';
 
-class MovieList extends Component {
+class USBoxList extends Component {
   constructor(props){
     super(props);
 
@@ -37,7 +37,7 @@ class MovieList extends Component {
   }
   showMovieDetail(movie){
     const {navigate} = this.props.navigation;
-    navigate('MoveiDetail',{movie: movie, type: '推荐电影'});
+    navigate('MoveiDetail',{movie: movie.subject, type: '北美票房'});
   }
   renderMovieList(movie){
     return (
@@ -49,13 +49,13 @@ class MovieList extends Component {
           <View>
             <Image
               style={styles.image}
-              source={{uri:movie.images.large}}
+              source={{uri:movie.subject.images.large}}
             />
           </View>
           <View style={styles.movieListInf}>
-            <Text style={styles.textTitle}>{movie.title}</Text>
-            <Text style={styles.textAlias}>{movie.original_title} ( {movie.year} )</Text>
-            <Text style={styles.textNum}>{movie.rating.average}</Text>
+            <Text style={styles.textTitle}>{movie.subject.title}</Text>
+            <Text style={styles.textAlias}>{movie.subject.original_title} ( {movie.subject.year} )</Text>
+            <Text style={styles.textNum}>{movie.subject.rating.average}</Text>
           </View>
         </View>
       </TouchableHighlight>
@@ -85,4 +85,4 @@ class MovieList extends Component {
   }
 }
 
-export {MovieList as default}
+export {USBoxList as default}

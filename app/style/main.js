@@ -1,6 +1,16 @@
 import {StyleSheet} from 'react-native';
 
 let styles = StyleSheet.create({
+  item:{
+    paddingTop: 6,
+    paddingBottom: 6
+  },
+  itemText: {
+    fontSize: 16,
+    lineHeight: 26,
+    color: 'rgba(0,0,0,0.8)',
+    fontWeight: '300'
+  },
   textNum: {
     fontSize: 13,
     color: 'red'
